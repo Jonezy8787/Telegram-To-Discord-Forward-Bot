@@ -66,15 +66,18 @@ def start(config):
 
             # If our entities contain URL, we want to parse and send Message + URL
             try:
-                parsed_response = (event.message.message + '\n' + event.message.entities[0].url )
-                parsed_response = ''.join(parsed_response)
+                if event.message.entities and len(event.message.entities) > 0 and hasattr(event.message.entities[0], 'url'):
+                    parsed_response = (event.message.message + '\n' + event.message.entities[0].url )
+                    parsed_response = ''.join(parsed_response)
+                else:
+                    parsed_response = event.message.message
             # Or else we only send Message    
             except:
                 parsed_response = event.message.message
 
             # This is probably not the best way to do this but definitely the easiest way. 
             # When message triggers you start discord messanger script in new thread and sends parsed input as sys.argv[1]
-            subprocess.call(["python", "discord_messager.py", str(parsed_response)])
+            subprocess.run(["python", "discord_messager.py", str(parsed_response)], check=False)
             # this will forward your message to channel_recieve in Telegram
             await client.forward_messages(output_channel, event.message)  
 

@@ -10,8 +10,15 @@ import discord
 '''
 
 discord_client = discord.Client()
-with open('config.yml', 'rb') as f:
-    config = yaml.safe_load(f)
+try:
+    with open('config.yml', 'rb') as f:
+        config = yaml.safe_load(f)
+except FileNotFoundError:
+    print("Error: config.yml file not found. Please create it from config.yml-sample")
+    sys.exit(1)
+except yaml.YAMLError as e:
+    print(f"Error parsing config.yml: {e}")
+    sys.exit(1)
 
 ''' 
 ------------------------------------------------------------------------
@@ -48,7 +55,7 @@ async def on_ready():
         await channel_2.send(message)
     elif 'Minecraft' in message:
         await channel_3.send(message)
-    elif 'Valhiem' in message:
+    elif 'Valheim' in message:
         await channel_4.send(message)
 
     quit()
