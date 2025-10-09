@@ -1,20 +1,20 @@
 # This has to be an integer. Read more [here](https://core.telegram.org/api/obtaining_api_id) | No quotes
-api_id: ******* 
+api_id: 12345678
 
 # Long 32 characters hash identifier. Read more [here](https://core.telegram.org/api/obtaining_api_id) | With quotes
-api_hash: '********************************' 
+api_hash: 'your_32_character_api_hash_here'
 
 # Session name. Only one session (with a unique session name) can run at a time | With quotes
-session_name: 'forwardgram' 
+session_name: 'forwardgram'
 
 # Discord Bot Token. Go create a bot on discord. | No quotes
-discord_bot_token: '*****************************************************'
+discord_bot_token: 'your_discord_bot_token_here'
 
 # Discord Channels | No quotes
-discord_1_channel: ************************
-discord_2_channel: ************************
-discord_3_channel: ************************
-discord_4_channel: ************************
+discord_1_channel: 123456789012345678
+discord_2_channel: 123456789012345679
+discord_3_channel: 123456789012345680
+discord_4_channel: 123456789012345681
 
 # The channel names that you'd like to forward messages from. Just add input telegram channel names here.
 # The user running the client must have these channels present on it's dialogs. 
@@ -28,11 +28,11 @@ output_channel_names:
 
 # The channel IDs that you'd like to forward messages from. Just get channel id from channels you put as input_channel_names above (You can get a channel ID by forwarding any message from it to @userinfobot , and removing the -100 from the start ) 
 input_channel_ids:
-  - ********** 
+  - 1234567890
 
 # The output channel IDs that the messages will be forwarded to. Just get channel id from channels you put as output_channel_names above (You can get a channel ID by forwarding any message from it to @userinfobot , and removing the -100 from the start )
 output_channel_ids: 
-  - **********
+  - 1234567891
 
 # Do not touch this: 
-input_channel_ids: []
+# input_channel_ids: []
